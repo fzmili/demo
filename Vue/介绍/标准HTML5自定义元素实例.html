@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        greeting {
+            display: block;
+            font-size: 36px;
+            color: #ff0000;
+        }
+    </style>
+    <script type="application/javascript">
+        function customTag(tagName, fn){
+            Array
+                .from(document.getElementsByTagName(tagName))
+                .forEach(fn);
+        }
+
+        function greetingHandler(element) {
+            element.innerHTML = '你好，世界';
+        }
+    </script>
+</head>
+<body>
+<greeting>HelloWorld</greeting>
+<script type="application/javascript">
+    customTag('greeting', greetingHandler);
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>$emit 和 $on</title>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <button @click="boost">触发事件</button>
+    <!--点击Button按钮后，会在Chrome的console输出message内容-->
+</div>
+<script>
+    new Vue({
+        el: '#root',
+        data:{
+            message: 'hello vue'
+            },
+        
+        created() {
+            this.$on('my_events', this.handleEvents)//事件监听器
+        },
+        methods: {
+            handleEvents(e) {
+                console.log(this.message, e)// 输出message的值，emit传递过来的参数e。
+            },
+            boost() {
+                this.$emit('my_events', ' event_param')//事件触发器
+            }
+        }
+    })
+</script>
+</body>
+</html>
